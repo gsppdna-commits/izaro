@@ -23,6 +23,102 @@
             z-index: 1000;
             width: 40%;
         }
+
+        /* --- PULSANTI FLOTTANTI DI CONTATTO --- */
+        .fab-container {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 2000;
+        }
+
+        .fab-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none;
+        }
+
+        .fab-btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+        }
+
+        .fab-btn svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        .fab-whatsapp { background-color: #25D366; }
+        .fab-phone { background-color: #0078FF; }
+
+        /* --- BADGE ALIMENTARI AUTOMATICI --- */
+        .badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 6px;
+            vertical-align: middle;
+            letter-spacing: 0.5px;
+        }
+        .badge-gluten-free {
+            background-color: #f1c40f;
+            color: #2c3e50;
+        }
+        .badge-vegan {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        /* --- GRIGLIA STRUTTURATA DEL FOOTER --- */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            text-align: left;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+        @media (min-width: 600px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        .footer-section h5 {
+            margin: 0 0 10px 0;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-primary, #fff);
+        }
+        .footer-section p {
+            margin: 4px 0;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+        .footer-section a {
+            color: #78a8ff;
+            text-decoration: none;
+        }
+        .footer-section a:hover { text-decoration: underline; }
+        .hours-sub {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            display: block;
+            margin-left: 15px;
+            color: var(--text-muted, #ccc);
+        }
     </style>
 </head>
 
@@ -49,6 +145,18 @@
     </div>
 
     <footer id="site-footer"></footer>
+
+    <!-- PULSANTI FLOTTANTI DI CONTATTO CORRETTI -->
+    <div class="fab-container">
+        <!-- Pulsante Chiamata Fisso -->
+        <a href="tel:0883510264" class="fab-btn fab-phone" title="Chiama in sede">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </a>
+        <!-- Pulsante WhatsApp con messaggio preimpostato -->
+        <a href="https://wa.me/393295325317?text=Ciao!%20Vorrei%20maggiori%20informazioni" target="_blank" class="fab-btn fab-whatsapp" title="Invia un messaggio WhatsApp">
+            <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.83 14.01c-.24.68-1.2 1.24-1.65 1.29-.45.05-.9.1-2.92-.71-2.58-1.03-4.22-3.66-4.35-3.83-.13-.17-1.07-1.43-1.07-2.73 0-1.3.67-1.94.91-2.21.24-.27.53-.34.71-.34.18 0 .36.01.51.01.16 0 .37-.06.58.45.22.53.75 1.84.82 1.97.07.13.11.3.02.48-.09.18-.14.3-.28.46-.14.17-.3.37-.43.5-.15.14-.31.3-.13.61.18.3.8 1.32 1.71 2.13.17.15.32.22.48.29.16.07.32.06.44.04.13-.02.53-.22.61-.43.08-.21.08-.4.06-.44-.02-.04-.09-.07-.2-.12-.11-.05-.67-.33-.77-.37-.1-.03-.18-.05-.26.07-.08.12-.31.39-.38.47-.07.08-.14.09-.25.04-.11-.05-.47-.17-.9-.56-.33-.3-.56-.66-.62-.77-.07-.11-.01-.17.05-.23.05-.05.11-.13.17-.2.06-.07.08-.12.12-.2.04-.08.02-.15-.01-.21-.03-.06-.26-.63-.36-.87-.1-.23-.2-.2-.26-.2h-.25c-.09 0-.24.03-.37.18-.13.15-.5.49-.5 1.2 0 .71.51 1.4 1.58 2.44.06.06.1 1.07 2.41 1.95.55.21.98.34 1.32.45.56.18 1.06.15 1.46.09.44-.07 1.35-.55 1.54-1.08.19-.53.19-.99.13-1.08-.06-.09-.23-.14-.54-.19z"/></svg>
+        </a>
+    </div>
 
     <script>
         let menuData = null;
@@ -104,16 +212,32 @@
                     hasRenderedItem = true;
                     return `
                                     ${block.subtitle ? `<p class="section-subtitle ${subtitleClass}">${block.subtitle}</p>` : ''}
-                                    ${block.items.map(item => `
-                                        <div class="menu-item">
-                                            <div class="item-main">
-                                                <span class="item-name">${item.name}${item.detail ? ` <small style="font-weight:normal;color:var(--text-muted)">${item.detail}</small>` : ''}</span>
-                                                ${item.allergens ? `<span class="allergen">(${item.allergens})</span>` : ''}
-                                                <span class="item-price">${item.price}</span>
+                                    ${block.items.map(item => {
+                                        // --- AGGANCIO DEI BADGE ALIMENTARI ---
+                                        const searchPool = `${item.name} ${item.description || ''}`.toLowerCase();
+                                        let badgesHtml = '';
+                                        
+                                        if (searchPool.includes('senza glutine') || searchPool.includes('gluten free')) {
+                                            badgesHtml += `<span class="badge badge-gluten-free">Senza Glutine</span>`;
+                                        }
+                                        if (searchPool.includes('vegano') || searchPool.includes('vegan')) {
+                                            badgesHtml += `<span class="badge badge-vegan">Vegano</span>`;
+                                        }
+
+                                        return `
+                                            <div class="menu-item">
+                                                <div class="item-main">
+                                                    <span class="item-name">
+                                                        ${item.name}${item.detail ? ` <small style="font-weight:normal;color:var(--text-muted)">${item.detail}</small>` : ''}
+                                                        ${badgesHtml}
+                                                    </span>
+                                                    ${item.allergens ? `<span class="allergen">(${item.allergens})</span>` : ''}
+                                                    <span class="item-price">${item.price}</span>
+                                                </div>
+                                                ${item.description ? `<div class="item-description">${item.description}</div>` : ''}
                                             </div>
-                                            ${item.description ? `<div class="item-description">${item.description}</div>` : ''}
-                                        </div>
-                                    `).join('')}
+                                        `;
+                                    }).join('')}
                                 `;
                 }).join('')}
                         </section>
@@ -129,7 +253,44 @@
             footer.innerHTML = `
                 <p><strong>${data.allergenLegend}</strong></p>
                 <p style="margin-top: 10px;">Il registro completo è disponibile presso il nostro personale.</p>
-                <p style="margin-top: 15px; font-size:0.7rem; opacity:0.6;">&copy; 2026 ÍZAROcafè. Tutti i diritti riservati.</p>
+                
+                <!-- FOOTER STRUTTURATO CON ORARI, MAPPA, RECAPITI E DATI FISCALI -->
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h5>📍 Dove Siamo</h5>
+                        <p>
+                            <a href="https://maps.google.com/?q=Via+Giuseppe+Palmitessa,+64,+76121+Barletta+BT" target="_blank" rel="noopener">
+                                Via Giuseppe Palmitessa, 64<br>76121 Barletta BT
+                            </a>
+                        </p>
+                        
+                        <h5 style="margin-top: 20px;">📞 Contatti</h5>
+                        <p>Fisso: <a href="tel:0883510264">0883 510264</a></p>
+                        <p>WhatsApp: <a href="https://wa.me/393295325317" target="_blank" rel="noopener">329 532 5317</a></p>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h5>🕒 Orari Estivi e Consegne</h5>
+                        <p><strong>Lun - Ven:</strong> Aperto 04:00 - 20:00 <span class="hours-sub">(Consegne 07:00 - 18:00)</span></p>
+                        <p><strong>Sabato:</strong> Aperto 04:00 - 14:00 <span class="hours-sub">(Consegne 07:00 - 13:30)</span></p>
+                        <p><strong>Domenica:</strong> Chiusi</p>
+                        
+                        <h5>🏢 Dati Aziendali</h5>
+                        <p style="font-size: 0.8rem; opacity: 0.8; line-height: 1.5;">
+                            <strong>IZARO CAFE' DI DINOIA VINCENZO</strong><br>
+                            Partita IVA: 07627910727<br>
+                            Codice Fiscale: DNIVCN63A28A669E<br>
+                            PEC: <a href="mailto:izarocafe@pec.it" style="color: inherit; text-decoration: none;">izarocafe@pec.it</a><br>
+                            Codice Destinatario SDI: J6URRTW
+                        </p>
+                    </div>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 25px; margin-bottom: 15px;">
+                <p style="font-size:0.75rem; opacity:0.6; line-height: 1.4;">
+                    &copy; 2026 ÍZAROcafè. Tutti i diritti riservati.<br>
+                    <span style="font-size:0.7rem; opacity:0.8;">Sito web progettato e curato da <strong>Michele Dinoia</strong>.</span>
+                </p>
             `;
         }
 
@@ -148,7 +309,6 @@
                     }
                 });
 
-                // Trova la prima sezione visibile nell'ordine del DOM
                 const activeId = sections.find(s => visibleSections.has(s.id))?.id;
                 if (!activeId || activeId === currentSectionId) return;
                 currentSectionId = activeId;
